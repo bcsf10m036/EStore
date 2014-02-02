@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null;
+    Layout = "~/Views/Admin/header_footer.cshtml";
+}
+
+    <div class="span4" >
+        
+
+
+    </div>
+
+    <div class="span6" >
+
+        <h2 >Admin Login</h2>
+        <br>
+
+         @using (Html.BeginForm("checkAdmin", "Admin", FormMethod.Post))
+        {
+        <table>
+        <tr>
+        <th  ><p >Admin Name</p></th> <th><input type=text name="name" id="t1"  /></th>
+        </tr>
+        
+        <tr>
+        <th  ><p >Password</p></th> <th><input type=password name="password" id="t2" /></th>
+        </tr>
+        <tr>
+        <th ><button class="btn btn-info" type="submit" style="margin-left:100px" onclick="return check(this)">Login</button></th>
+         <th><button class="btn" type="submit">Cancel</button></th>
+        </tr>
+        </table>
+              <div id="p1" style="color:red"></div>
+        }
+        <script>
+            function check() {
+                var name = document.getElementById('t1').value;
+                var password = document.getElementById('t2').value;
+                var err = document.getElementById('p1');
+                if (name.length == 0) {
+                    err.innerText = "*name field naver be empty.";
+                    return false;
+                }
+                else if (password.length == 0) {
+                    err.innerText = "*password field naver be empty.";
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+            </script>
+    </div>
+  
+   
